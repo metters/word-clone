@@ -20,7 +20,7 @@ export function WordGuessInput({handleAddWordGuess}) {
                 minLength='5'
                 maxLength='5'
                 onChange={(event) => {
-                    const upperCaseInput =event.target.value.toUpperCase();
+                    const upperCaseInput = event.target.value.toUpperCase();
                     setInput(upperCaseInput)
                 }}
             />

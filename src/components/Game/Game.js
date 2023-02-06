@@ -3,7 +3,7 @@ import React from 'react';
 import {sample} from '../../utils';
 import {WORDS} from '../../data';
 import {WordGuessInput} from "./WordGuessInput";
-import {GuessedWordList} from "./GuessedWordList";
+import {GuessResults} from "./GuessResults";
 
 const answer = sample(WORDS);
 console.info({answer});
@@ -14,11 +14,12 @@ function Game() {
         {word: "", id: Math.random()},
         {word: "", id: Math.random()},
         {word: "", id: Math.random()},
-        {word: "", id: Math.random()}
+        {word: "", id: Math.random()},
+        {word: "", id: Math.random()},
     ])
 
     const handleAddWordGuess = (input) => {
-        if (guesses.filter(({word}) => word).length >= 5) {
+        if (guesses.filter(({word}) => word).length >= 6) {
             return;
         }
 
@@ -32,7 +33,7 @@ function Game() {
     }
 
     return <>
-        <GuessedWordList guesses={guesses} />
+        <GuessResults guesses={guesses} />
         < WordGuessInput handleAddWordGuess={handleAddWordGuess} />
     </>;
 }

@@ -10,7 +10,7 @@ export function GuessResults({guesses}) {
                     {range(0, 5).map(index => {
                         const character = word.charAt(index);
                         let characterStatus = ''
-                        if (status !== "") {
+                        if (status.length > 0) {
                             characterStatus += " " + status[index].status
                         }
                         return <GuessCell

@@ -9,7 +9,10 @@ export function GuessResults({guesses}) {
                 return (<p key={id} className='guess'>
                     {range(0, 5).map(index => {
                         const character = word.charAt(index);
-                        const characterStatus = status !== "" && status[index].status
+                        let characterStatus = ''
+                        if (status !== "") {
+                            characterStatus += " " + status[index].status
+                        }
                         return <GuessCell
                             key={index} character={character} status={characterStatus}
                         />

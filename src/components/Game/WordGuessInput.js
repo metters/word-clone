@@ -7,7 +7,6 @@ export function WordGuessInput({handleAddWordGuess}) {
         <form
             className='guess-input-wrapper' onSubmit={(event) => {
             event.preventDefault();
-            console.log("XX: " + input)
             handleAddWordGuess(input);
             setInput('')
         }}

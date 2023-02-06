@@ -5,14 +5,17 @@ import {range} from "../../utils";
 export function GuessResults({guesses}) {
     return (
         <div className='guess-results'>
-            {guesses
-                .map(({word, id}) => {
-                    return (<p key={id} className='guess'>
-                        {range(0, 5).map(index => {
-                            return <GuessCell key={index} word={word} index={index} />
-                        })}
-                    </p>)
-                })}
+            {guesses.map(({word, status, id}) => {
+                return (<p key={id} className='guess'>
+                    {range(0, 5).map(index => {
+                        const character = word.charAt(index);
+                        const characterStatus = status !== "" && status[index].status
+                        return <GuessCell
+                            key={index} character={character} status={characterStatus}
+                        />
+                    })}
+                </p>)
+            })}
         </div>
     )
 }

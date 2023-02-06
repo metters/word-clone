@@ -1,7 +1,7 @@
 import React from 'react';
 
-export function GuessCell({word, index}) {
+export function GuessCell({character, status}) {
     return (
-        <span className='cell'>{word.charAt(index)}</span>
+        <span className={"cell " + status}>{character}</span>
     )
 }

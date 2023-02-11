@@ -4,10 +4,10 @@ function GuessInput({guessedResults, setGuessedResults}) {
     const [guessInput, setGuessInput] = React.useState('')
     const handleGuessSubmit = (event) => {
         event.preventDefault();
-        console.log({guessInput});
         const nextGuessedResults = [...guessedResults];
         nextGuessedResults.push({guessInput, key: Math.random()})
         setGuessedResults(nextGuessedResults);
+        console.log({guessInput: nextGuessedResults.at(-1).guessInput});
         setGuessInput('');
     }
 

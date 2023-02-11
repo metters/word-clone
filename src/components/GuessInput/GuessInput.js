@@ -4,7 +4,7 @@ function GuessInput() {
   const [guessInput, setGuessInput] = React.useState('')
   const handleGuessSubmit = (event) => {
     event.preventDefault();
-    console.log(guessInput);
+    console.log({guessInput});
     setGuessInput('');
   }
 

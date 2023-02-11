@@ -6,7 +6,7 @@ function GuessInput({guessedResults, setGuessedResults}) {
         event.preventDefault();
         console.log({guessInput});
         const nextGuessedResults = [...guessedResults];
-        nextGuessedResults.push({guessInput})
+        nextGuessedResults.push({guessInput, key: Math.random()})
         setGuessedResults(nextGuessedResults);
         setGuessInput('');
     }

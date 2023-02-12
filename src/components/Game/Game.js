@@ -9,11 +9,20 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-    const [guessedResults, setGuessedResults] = React.useState([]);
+    const [guessedResults, setGuessedResults] = React.useState([
+        {guessInput: "     "},
+        {guessInput: "     "},
+        {guessInput: "     "},
+        {guessInput: "     "},
+        {guessInput: "     "},
+        {guessInput: "     "},
+    ]);
 
     function handleSubmitGuess(guessInput) {
-        setGuessedResults([...guessedResults, guessInput]);
-        console.log({guessInput});
+        const nextGuessedResults = [...guessedResults];
+        const indexOfFirstEmptyGuess = nextGuessedResults.findIndex(it => it.guessInput === "     ");
+        nextGuessedResults[indexOfFirstEmptyGuess] = guessInput;
+        setGuessedResults(nextGuessedResults);
     }
 
     return (

@@ -7,7 +7,12 @@ function GuessResults({guessedResults}) {
     return (
         <div className='guess-results'>
             {range(NUM_OF_GUESSES_ALLOWED).map((num) => {
-                return <Guess key={num} value={guessedResults[num] ? guessedResults[num].guessInput : "     "} />
+                const value = guessedResults[num] ? guessedResults[num].guessInput : undefined;
+                return <Guess
+                    key={num}
+                    value={value}
+                    status={"cell"}
+                />
             })}
         </div>)
 }

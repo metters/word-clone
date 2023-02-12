@@ -1,6 +1,6 @@
 import React from "react";
 
-function GuessInput({handleSubmitGuess}) {
+function GuessInput({handleSubmitGuess, gameStatus}) {
     const [guessInput, setGuessInput] = React.useState('')
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -12,6 +12,7 @@ function GuessInput({handleSubmitGuess}) {
         <form onSubmit={handleSubmit} className='guess-input-wrapper'>
             <label htmlFor='guess-input'>Enter guess:</label>
             <input
+                disabled={['won', 'lost'].includes(gameStatus)}
                 required
                 pattern='[a-zA-Z]{5}'
                 title='Word containing exactly 5 characters: [a-zA-Z]{5}'

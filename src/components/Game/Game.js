@@ -44,10 +44,10 @@ function Game() {
 
     return (
         <>
-            {gameStatus === 'won' && <HappyBanner numOfGuesses={guessedResults.length} />}
-            {gameStatus === 'lost' && <SadBanner answer={answer} />}
             <GuessResults guessedResults={guessedResults} answer={answer} />
             <GuessInput handleSubmitGuess={handleSubmitGuess} gameStatus={gameStatus}/>
+            {gameStatus === 'won' && <HappyBanner numOfGuesses={guessedResults.length} />}
+            {gameStatus === 'lost' && <SadBanner answer={answer} />}
         </>);
 }
 

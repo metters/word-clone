@@ -9,6 +9,24 @@ import {NUM_OF_GUESSES_ALLOWED} from "../../constants";
 const answer = sample(WORDS);
 console.info({answer});
 
+
+const HappyBanner = ({numOfGuesses}) => {
+    return (
+        <div className='happy banner'>
+            <p>
+                <strong>Congratulations!</strong> Got it in <strong>{numOfGuesses} guesses</strong>.
+            </p>
+        </div>)
+}
+
+const SadBanner = ({answer}) => {
+    return (
+        <div className='sad banner'>
+            <p>Sorry, the correct answer is <strong>{answer}</strong>.</p>
+        </div>)
+}
+
+
 function Game() {
     const [guessedResults, setGuessedResults] = React.useState([]);
     const [gameStatus, setGameStatus] = React.useState('running');
@@ -26,7 +44,8 @@ function Game() {
 
     return (
         <>
-            {gameStatus}
+            {gameStatus === 'won' && <HappyBanner numOfGuesses={guessedResults.length} />}
+            {gameStatus === 'lost' && <SadBanner answer={answer} />}
             <GuessResults guessedResults={guessedResults} answer={answer} />
             <GuessInput handleSubmitGuess={handleSubmitGuess} />
         </>);
